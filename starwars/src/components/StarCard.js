@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const Div = styled.div `
+import OIP from "OIP.jpg";
+
+
+const Div = styled.div`
 border: solid grey;
 padding: 2%;
 margin: 5%;
@@ -12,20 +15,32 @@ justify-content: center;
 flex-direction: column;
 `
 
-const List = styled.ul `
-background-color: grey;
+const Title = styled.h1 `
+color: green;
+letter-spacing: 5px;
 `
+
+const List = styled.ul`
+background-color: grey;
+list-style-image: url('OIP.jpg');
+`
+
 
 const StarCard = props => {
 
     return (
         <>
             <Div key={props.name}>
-                <h1>{props.name}</h1>
+                <Title>{props.name}</Title>
                 <List>
-                 <li>Height: {props.height}</li>
-                 <li>Hair Color:{props.hair_color}</li>
-                 <li>Gender: {props.gender}</li>
+                    <li>Height:   {props.height}</li>
+                    <li>Hair color:  {props.hair_color}</li>
+                    <li>Skin color:  {props.skin_color}</li>
+                    <li>Eye color:  {props.eye_color}</li>
+                    <li>Gender:   {props.gender}</li>
+                    <li>Created:   {props.created}</li>
+
+
 
                 </List>
 

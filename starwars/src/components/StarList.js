@@ -3,6 +3,7 @@ import axios from "axios";
 import StarCard from './StarCard';
 
 
+
 export default function StarList(){
     const [character, setCharacter] = useState([]);
 
@@ -24,8 +25,13 @@ export default function StarList(){
                     name={char.name}
                     height={char.height}
                     hair_color={char.hair_color}
+                    skin_color={char.skin_color}
+                    eye_color={char.eye_color}
                     gender={char.gender}
+                    
                     />
+
+                    
                 );
             })}
         </div>
