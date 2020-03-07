@@ -3,8 +3,11 @@ import './App.css';
 import styled from "styled-components";
 
 import StarList from './components/StarList';
+import Form from './components/Form';
 
-const Title = styled.h1 `
+
+
+const Title = styled.h1`
 text-align: center;
 font-size: 5rem;
 `
@@ -18,8 +21,9 @@ const App = () => {
   // sync up with, if any.
 
   return (
-    <div className="App">
+    <div className="App" >
       <Title className="Header">React Wars</Title>
+      <Form />
       <StarList />
     </div>
   );
