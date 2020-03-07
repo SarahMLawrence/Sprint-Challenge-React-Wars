@@ -1,32 +1,33 @@
 import React, { useState, useEffect } from 'react';
+import axios from "axios";
+import StarCard from './StarCard';
 
-import axios from 'axios';
 
-
-const StarList = () => {
-
+export default function StarList(){
     const [character, setCharacter] = useState([]);
-    useEffect(() => {
-        axios
-            .get("https://swapi.co/api/people")
-            .then(res => setCharacter(res.data.results));
-    }, []);
 
+    useEffect(() =>{
+        axios.get(`https://swapi.co/api/people/`).then(res => {
+            const newChar = res.data.results;
+            console.log(newChar);
+            setCharacter(newChar);
+        })
+        .catch(err => console.log(`The error is: ${err}`));
+    }, []);
 
     return (
         <div>
-            {character.map(item => {
+            {character.map(char => {
                 return (
-                    <StarCard />
+                    <StarCard 
+                    key={char.name}
+                    name={char.name}
+                    height={char.height}
+                    hair_color={char.hair_color}
+                    gender={char.gender}
+                    />
                 );
             })}
-
         </div>
-
     );
-
-
-
 }
-
-export default StarList;
